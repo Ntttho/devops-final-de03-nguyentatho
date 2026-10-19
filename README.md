@@ -44,8 +44,8 @@ Phần **sinh viên phải làm** (xem đề thi):
 | File | Việc cần làm |
 |------|--------------|
 | `student.env` | Điền thông tin sinh viên và thông số triển khai |
-| `Dockerfile` | **Hoàn chỉnh**: multi-stage build, stage `build` (Gradle + JDK 21) và stage runtime (JRE 21) |
-| `docker-compose.yml` | **Điền các TODO 1–5** (service `mysql` đã có sẵn) |
+| `Dockerfile` | Multi-stage build: stage `build` (Gradle + JDK 21) và stage runtime (JRE 21) |
+| `docker-compose.yml` | Cấu hình app, Nginx, MySQL, networks và volumes |
 | `.github/workflows/ci-cd.yml` | **Điền các TODO 1–6** của pipeline build → push image → deploy |
 | `screenshots/` | `01-actions.png`, `02-ghcr.png`, `03-compose-ps.png`, `04-website.png` |
 
@@ -63,7 +63,7 @@ Phần **sinh viên phải làm** (xem đề thi):
 | `DB_NAME`, `DB_USER`, `DB_PASSWORD` | Database và tài khoản kết nối |
 | `APP_VERSION` | Phiên bản (truyền vào lúc build image, ví dụ commit SHA) |
 
-## Chạy thử (khi đã hoàn thiện Dockerfile và docker-compose.yml)
+## Chạy thử
 
 ```bash
 docker compose --env-file student.env up -d --build

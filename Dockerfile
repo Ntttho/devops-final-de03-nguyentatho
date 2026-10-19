@@ -21,11 +21,10 @@ RUN ./gradlew bootJar -x test
 
 # ---------- Stage 2: runtime - chỉ chứa JRE 21 + file JAR ----------
 FROM eclipse-temurin:21-jre-alpine AS app
-#runtime
 
 # Phiên bản ứng dụng truyền vào lúc build (docker compose: build-arg APP_VERSION)
-# ARG ______=dev
-ENV APP_VERSION=local \
+ARG APP_VERSION=dev
+ENV APP_VERSION=${APP_VERSION} \
     JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=75"
 
 WORKDIR /app
@@ -34,9 +33,9 @@ WORKDIR /app
 RUN addgroup -S spring && adduser -S spring -G spring
 # Chỉ lấy file JAR từ stage build
 COPY --from=build /app/build/libs/*.jar app.jar
-USER nttho
+USER spring
 
-EXPOSE 8094
+EXPOSE 8080
 
 # ENTRYPOINT dạng exec (mảng JSON)
 ENTRYPOINT ["java", "-jar", "app.jar"]
