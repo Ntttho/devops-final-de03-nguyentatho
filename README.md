@@ -63,6 +63,8 @@ Phần **sinh viên phải làm** (xem đề thi):
 | `DB_NAME`, `DB_USER`, `DB_PASSWORD` | Database và tài khoản kết nối |
 | `APP_VERSION` | Phiên bản (truyền vào lúc build image, ví dụ commit SHA) |
 
+`MYSQL_USER` phải là tài khoản ứng dụng riêng, không được đặt là `root`. MySQL chỉ áp dụng các biến `MYSQL_*` khi khởi tạo volume lần đầu; nếu volume đã được khởi tạo với cấu hình cũ, hãy tạo/sửa tài khoản trong MySQL hoặc xóa volume chỉ khi dữ liệu trong đó có thể bỏ.
+
 ## Chạy thử
 
 ```bash
