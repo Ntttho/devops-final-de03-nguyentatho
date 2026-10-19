@@ -65,6 +65,16 @@ Phần **sinh viên phải làm** (xem đề thi):
 
 `MYSQL_USER` phải là tài khoản ứng dụng riêng, không được đặt là `root`. MySQL chỉ áp dụng các biến `MYSQL_*` khi khởi tạo volume lần đầu; nếu volume đã được khởi tạo với cấu hình cũ, hãy tạo/sửa tài khoản trong MySQL hoặc xóa volume chỉ khi dữ liệu trong đó có thể bỏ.
 
+## CI/CD
+
+Workflow `.github/workflows/ci-cd.yml` chạy khi push lên nhánh `main` hoặc được chạy thủ công. Pipeline build và smoke test bằng Docker Compose, đẩy image có tag commit SHA và `latest` lên GHCR, sau đó deploy qua SSH. Cấu hình ba GitHub Actions Secrets sau để bật bước deploy:
+
+| Secret | Giá trị |
+|--------|---------|
+| `SERVER_HOST` | Địa chỉ máy chủ triển khai |
+| `SERVER_USER` | Tài khoản SSH trên máy chủ |
+| `SERVER_SSH_KEY` | Private key SSH dùng để đăng nhập |
+
 ## Chạy thử
 
 ```bash
