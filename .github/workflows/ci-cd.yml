@@ -131,3 +131,4 @@ jobs:
             docker compose --env-file student.env up -d --no-build
             docker logout ghcr.io
             docker compose --env-file student.env ps
+ 
