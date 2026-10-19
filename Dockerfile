@@ -35,7 +35,7 @@ RUN addgroup -S spring && adduser -S spring -G spring
 COPY --from=build /app/build/libs/*.jar app.jar
 USER spring
 
-EXPOSE 8080
+EXPOSE 8094
 
 # ENTRYPOINT dạng exec (mảng JSON)
 ENTRYPOINT ["java", "-jar", "app.jar"]

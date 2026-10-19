@@ -8,7 +8,7 @@ Bộ mã nguồn khởi đầu cho bài thi **DevOps Fundamentals – Cuối k�
 ```
 Trình duyệt ── http://<IP_máy_chủ>:<APP_PORT>
     ▼
-[nginx]  nginx:1.27-alpine        GET /*  → app:8080
+[nginx]  nginx:1.27-alpine        GET /*  → app:8094
     ▼
 [app]    Spring Boot 4 (JRE 21)   GET /api/tasks → mysql:3306
     ▼

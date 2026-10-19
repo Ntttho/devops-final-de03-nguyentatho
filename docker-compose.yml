@@ -45,6 +45,7 @@ services:
     environment:
       DB_HOST: mysql
       DB_PORT: "3306"
+      SERVER_PORT: "8094"
       # Lấy thông tin kết nối từ student.env, không ghi cứng thông tin DB.
       DB_NAME: ${MYSQL_DATABASE}
       DB_USER: ${MYSQL_USER}
